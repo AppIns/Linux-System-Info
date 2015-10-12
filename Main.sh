@@ -9,10 +9,10 @@
 
 
 # This sources the program, just leave this here
-echo "";
-echo "NOTICE: Error reporting, Source: GitHub.com/AppIns/Linux-System-Info";
-echo "NOTICE: Some info will be recorded.";
-echo "";
+
+echo "NOTICE: Error reporting, Source: GitHub.com/AppIns/Linux-System-Info
+NOTICE: Some info will be recorded.";
+
 
 # Comment or uncomment anything bellow to change reporting info.
 
@@ -38,22 +38,26 @@ homedir=$(pwd);
 # Create directory for error reporting
 # NOTE: Change the name of the directory BEFORE using
 if [ -d "$homedir/Error_Reporting" ]; then
+  # If the directory exists, change to it
   cd Error_Report
-  if [ -d "$homedir/Error_Report/Error_Logs" ]; then
-    cd Error_Logs
+  if [ -d "$homedir/Error_Report/Logs" ]; then
+    # If the direcotry exists, change to it
+    cd Logs
   else
-    mkdir Error_Logs
-    cd Error_Logs
+    # No log file? Not a problem.
+    mkdir Logs
+    cd Logs
   fi
 else
+  # If nothing exists, make everything
   mkdir ~/Error_Report;
-  mkdir ~/Error_Report/Error_Logs;
-  cd ~/Error_Report/Error_Logs;
+  mkdir ~/Error_Report/Logs;
+  cd ~/Error_Report/Logs;
 fi
 
 # Time Vars
 Sec=$(date +%s);
-Day=$(date +%m +%d +%y);
+Day=$(date "+%m %d %y");
 
 echo "-NEW REPORT AT $Sec-
 Date: $SystemTime
